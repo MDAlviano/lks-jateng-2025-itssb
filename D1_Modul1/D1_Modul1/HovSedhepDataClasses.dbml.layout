@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11.25, 8.875" name="HovSedhepDataClasses">
+  <DataContextMoniker Name="/HovSedhepDataClassesDataContext" />
+  <nestedChildShapes>
+    <classShape Id="ca678022-911c-4b3d-b272-a334624ce4ff" absoluteBounds="3.5, 7.25, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/HovSedhepDataClassesDataContext/Category" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9673a926-f49f-4be6-a36b-1f2439e2a90e" absoluteBounds="3.515, 7.71, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ab970efd-a4cf-4f6a-92ee-b867c522c3b9" absoluteBounds="3.5, 0.875, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/HovSedhepDataClassesDataContext/Transaction" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ffda36f8-7f8d-46e3-89c2-14f7b4155035" absoluteBounds="3.515, 1.335, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1be1dab3-8be3-42db-9818-9062d67ffe37" absoluteBounds="3.5, 3.875, 2, 1.9631982421875005">
+      <DataClassMoniker Name="/HovSedhepDataClassesDataContext/Employee" />
+      <nestedChildShapes>
+        <elementListCompartment Id="02ae7901-d66d-496a-908c-5ac083357b8f" absoluteBounds="3.515, 4.335, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="66df948f-583e-41b2-91e1-325af261f893" absoluteBounds="6.25, 6.875, 2, 1.7708968098958326">
+      <DataClassMoniker Name="/HovSedhepDataClassesDataContext/MenuItem" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0efdce0b-d0c5-4e9b-b5af-004985f74336" absoluteBounds="6.265, 7.335, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7047f606-096a-4ce7-97ef-88dc55b5f852" absoluteBounds="9, 0.875, 2, 1.7708968098958329">
+      <DataClassMoniker Name="/HovSedhepDataClassesDataContext/OrderDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4abf6bf2-37c3-4984-bbb1-bb97b53fdda6" absoluteBounds="9.015, 1.335, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8b6bd93d-b6c2-4ef6-b732-4637d7327aa1" absoluteBounds="6.25, 1, 2, 1.5785953776041663">
+      <DataClassMoniker Name="/HovSedhepDataClassesDataContext/Order" />
+      <nestedChildShapes>
+        <elementListCompartment Id="57305ee9-a6f1-47f1-8eea-aa67fc7eb4d1" absoluteBounds="6.265, 1.46, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8678b5ef-8b93-479a-b602-bd5abab9cc34" absoluteBounds="0.75, 1.125, 2, 1.3862939453125">
+      <DataClassMoniker Name="/HovSedhepDataClassesDataContext/RestaurantTable" />
+      <nestedChildShapes>
+        <elementListCompartment Id="16d2996f-c611-447f-acdf-6cbe75d3b70e" absoluteBounds="0.765, 1.585, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.5 : 7.84699625651042); (6.25 : 7.84699625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/HovSedhepDataClassesDataContext/Category/Category_MenuItem" />
+      <nodes>
+        <classShapeMoniker Id="ca678022-911c-4b3d-b272-a334624ce4ff" />
+        <classShapeMoniker Id="66df948f-583e-41b2-91e1-325af261f893" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 7.76044840494792); (10 : 7.76044840494792); (10 : 2.64589680989583)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/HovSedhepDataClassesDataContext/MenuItem/MenuItem_OrderDetail" />
+      <nodes>
+        <classShapeMoniker Id="66df948f-583e-41b2-91e1-325af261f893" />
+        <classShapeMoniker Id="7047f606-096a-4ce7-97ef-88dc55b5f852" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 1.78929768880208); (9 : 1.78929768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/HovSedhepDataClassesDataContext/Order/Order_OrderDetail" />
+      <nodes>
+        <classShapeMoniker Id="8b6bd93d-b6c2-4ef6-b732-4637d7327aa1" />
+        <classShapeMoniker Id="7047f606-096a-4ce7-97ef-88dc55b5f852" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 4.85659912109375); (7.25 : 4.85659912109375); (7.25 : 2.57859537760417)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/HovSedhepDataClassesDataContext/Employee/Employee_Order" />
+      <nodes>
+        <classShapeMoniker Id="1be1dab3-8be3-42db-9818-9062d67ffe37" />
+        <classShapeMoniker Id="8b6bd93d-b6c2-4ef6-b732-4637d7327aa1" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 1.78929768880208); (6.25 : 1.78929768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/HovSedhepDataClassesDataContext/Transaction/Transaction_Order" />
+      <nodes>
+        <classShapeMoniker Id="ab970efd-a4cf-4f6a-92ee-b867c522c3b9" />
+        <classShapeMoniker Id="8b6bd93d-b6c2-4ef6-b732-4637d7327aa1" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 1.81814697265625); (3.5 : 1.81814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/HovSedhepDataClassesDataContext/RestaurantTable/RestaurantTable_Transaction" />
+      <nodes>
+        <classShapeMoniker Id="8678b5ef-8b93-479a-b602-bd5abab9cc34" />
+        <classShapeMoniker Id="ab970efd-a4cf-4f6a-92ee-b867c522c3b9" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

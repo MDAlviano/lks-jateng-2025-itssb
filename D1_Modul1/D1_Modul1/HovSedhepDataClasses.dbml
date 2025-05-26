@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="HovSedhepDatabase" Class="HovSedhepDataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=ALVIN\ALVINTORIALSQL;Initial Catalog=HovSedhepDatabase;Integrated Security=True;Trust Server Certificate=True" SettingsObjectName="D1_Modul1.Properties.Settings" SettingsPropertyName="HovSedhepDatabaseConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Categories" Member="Categories">
+    <Type Name="Category">
+      <Column Name="CategoryID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Category_MenuItem" Member="MenuItems" ThisKey="CategoryID" OtherKey="CategoryID" Type="MenuItem" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Transactions" Member="Transactions">
+    <Type Name="Transaction">
+      <Column Name="TransactionID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TableID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CustomerName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="TransactionDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Association Name="Transaction_Order" Member="Orders" ThisKey="TransactionID" OtherKey="TransactionID" Type="Order" />
+      <Association Name="RestaurantTable_Transaction" Member="RestaurantTable" ThisKey="TableID" OtherKey="TableID" Type="RestaurantTable" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Employees" Member="Employees">
+    <Type Name="Employee">
+      <Column Name="EmployeeID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Role" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Phone" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="HireDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Association Name="Employee_Order" Member="Orders" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="Order" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MenuItems" Member="MenuItems">
+    <Type Name="MenuItem">
+      <Column Name="MenuItemID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Price" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CategoryID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="MenuItem_OrderDetail" Member="OrderDetails" ThisKey="MenuItemID" OtherKey="MenuItemID" Type="OrderDetail" />
+      <Association Name="Category_MenuItem" Member="Category" ThisKey="CategoryID" OtherKey="CategoryID" Type="Category" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OrderDetails" Member="OrderDetails">
+    <Type Name="OrderDetail">
+      <Column Name="OrderDetailID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="OrderID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MenuItemID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Price" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Association Name="MenuItem_OrderDetail" Member="MenuItem" ThisKey="MenuItemID" OtherKey="MenuItemID" Type="MenuItem" IsForeignKey="true" />
+      <Association Name="Order_OrderDetail" Member="Order" ThisKey="OrderID" OtherKey="OrderID" Type="Order" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Orders" Member="Orders">
+    <Type Name="Order">
+      <Column Name="OrderID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TransactionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="EmployeeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="OrderTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Order_OrderDetail" Member="OrderDetails" ThisKey="OrderID" OtherKey="OrderID" Type="OrderDetail" />
+      <Association Name="Employee_Order" Member="Employee" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="Employee" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Transaction_Order" Member="Transaction" ThisKey="TransactionID" OtherKey="TransactionID" Type="Transaction" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.RestaurantTables" Member="RestaurantTables">
+    <Type Name="RestaurantTable">
+      <Column Name="TableID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Capacity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="RestaurantTable_Transaction" Member="Transactions" ThisKey="TableID" OtherKey="TableID" Type="Transaction" />
+    </Type>
+  </Table>
+</Database>

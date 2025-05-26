@@ -1,0 +1,15 @@
+D:\LKS\Projects\Jateng-2025\D1_Modul1\D1_Modul1\bin\Debug\D1_Modul1.exe.config
+D:\LKS\Projects\Jateng-2025\D1_Modul1\D1_Modul1\bin\Debug\D1_Modul1.exe
+D:\LKS\Projects\Jateng-2025\D1_Modul1\D1_Modul1\bin\Debug\D1_Modul1.pdb
+D:\LKS\Projects\Jateng-2025\D1_Modul1\D1_Modul1\obj\Debug\D1_Modul1.csproj.AssemblyReference.cache
+D:\LKS\Projects\Jateng-2025\D1_Modul1\D1_Modul1\obj\Debug\D1_Modul1.Form1.resources
+D:\LKS\Projects\Jateng-2025\D1_Modul1\D1_Modul1\obj\Debug\D1_Modul1.Properties.Resources.resources
+D:\LKS\Projects\Jateng-2025\D1_Modul1\D1_Modul1\obj\Debug\D1_Modul1.csproj.GenerateResource.cache
+D:\LKS\Projects\Jateng-2025\D1_Modul1\D1_Modul1\obj\Debug\D1_Modul1.csproj.CoreCompileInputs.cache
+D:\LKS\Projects\Jateng-2025\D1_Modul1\D1_Modul1\obj\Debug\D1_Modul1.exe
+D:\LKS\Projects\Jateng-2025\D1_Modul1\D1_Modul1\obj\Debug\D1_Modul1.pdb
+D:\LKS\Projects\Jateng-2025\D1_Modul1\D1_Modul1\obj\Debug\D1_Modul1.UserControls.UCHistory.resources
+D:\LKS\Projects\Jateng-2025\D1_Modul1\D1_Modul1\obj\Debug\D1_Modul1.UserControls.UCMenu.resources
+D:\LKS\Projects\Jateng-2025\D1_Modul1\D1_Modul1\obj\Debug\D1_Modul1.UserControls.UCTableSeating.resources
+D:\LKS\Projects\Jateng-2025\D1_Modul1\D1_Modul1\obj\Debug\D1_Modul1.Forms.AssignTableForm.resources
+D:\LKS\Projects\Jateng-2025\D1_Modul1\D1_Modul1\obj\Debug\D1_Modul1.Forms.TableSeatingDetailForm.resources

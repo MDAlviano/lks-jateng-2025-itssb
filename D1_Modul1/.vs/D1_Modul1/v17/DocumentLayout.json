@@ -1,0 +1,48 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\LKS\\Projects\\Jateng-2025\\D1_Modul1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{38D402C6-A79A-4B84-9483-D828042F84CF}|D1_Modul1\\D1_Modul1.csproj|D:\\LKS\\Projects\\Jateng-2025\\D1_Modul1\\d1_modul1\\hovsedhepdataclasses.dbml||{B465B5AD-8799-4507-B90A-EE29ACF36AF9}|",
+      "RelativeMoniker": "D:0:0:{38D402C6-A79A-4B84-9483-D828042F84CF}|D1_Modul1\\D1_Modul1.csproj|solutionrelative:d1_modul1\\hovsedhepdataclasses.dbml||{B465B5AD-8799-4507-B90A-EE29ACF36AF9}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "HovSedhepDataClasses.dbml",
+              "DocumentMoniker": "D:\\LKS\\Projects\\Jateng-2025\\D1_Modul1\\D1_Modul1\\HovSedhepDataClasses.dbml",
+              "RelativeDocumentMoniker": "D1_Modul1\\HovSedhepDataClasses.dbml",
+              "ToolTip": "D:\\LKS\\Projects\\Jateng-2025\\D1_Modul1\\D1_Modul1\\HovSedhepDataClasses.dbml",
+              "RelativeToolTip": "D1_Modul1\\HovSedhepDataClasses.dbml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001722|",
+              "WhenOpened": "2025-05-12T13:14:43.103Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
