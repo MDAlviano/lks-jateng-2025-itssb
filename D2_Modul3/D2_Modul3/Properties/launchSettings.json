@@ -24,7 +24,7 @@
       "dotnetRunMessages": true,
       "launchBrowser": true,
       "launchUrl": "swagger",
-      "applicationUrl": "https://localhost:7269;http://localhost:5143",
+      "applicationUrl": "https://localhost:5000/gsa-api/v1;http://localhost:5000/gsa-api/v1",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
