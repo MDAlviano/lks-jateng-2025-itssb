@@ -8,7 +8,7 @@ object HttpHandler {
 
     private const val BASE_URL = "http://localhost:5000"
 
-    fun postRequest(endpoint: String, requestBody: JSONObject): String {
+    fun postRequest(endpoint: String, requestBody: JSONObject? = null): String {
         val url = URL("$BASE_URL/$endpoint")
         val connection = url.openConnection() as HttpURLConnection
         return try {
@@ -16,10 +16,12 @@ object HttpHandler {
             connection.setRequestProperty("Content-Type", "application/json")
             connection.doOutput = true
 
-            val outputStream = connection.outputStream
-            outputStream.write(requestBody.toString().toByteArray())
-            outputStream.flush()
-            outputStream.close()
+            requestBody?.let {
+                val outputStream = connection.outputStream
+                outputStream.write(requestBody.toString().toByteArray())
+                outputStream.flush()
+                outputStream.close()
+            }
 
             if (connection.responseCode == HttpURLConnection.HTTP_OK) {
                 connection.inputStream.bufferedReader().use { it.readText() }
