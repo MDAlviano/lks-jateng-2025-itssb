@@ -6,9 +6,9 @@ import java.net.URL
 
 object HttpHandler {
 
-    private const val BASE_URL = "http://localhost:5000/swagger"
+    private const val BASE_URL = "http://localhost:5000"
 
-    fun postRequest(endpoint: String, jsonObject: JSONObject): String {
+    fun postRequest(endpoint: String, requestBody: JSONObject): String {
         val url = URL("$BASE_URL/$endpoint")
         val connection = url.openConnection() as HttpURLConnection
         return try {
@@ -17,7 +17,7 @@ object HttpHandler {
             connection.doOutput = true
 
             val outputStream = connection.outputStream
-            outputStream.write(jsonObject.toString().toByteArray())
+            outputStream.write(requestBody.toString().toByteArray())
             outputStream.flush()
             outputStream.close()
 
@@ -32,13 +32,17 @@ object HttpHandler {
         }
     }
 
-    fun getRequest(endpoint: String): String {
+    fun getRequest(endpoint: String, token: String? = null): String {
         val url = URL("$BASE_URL/$endpoint")
         val connection = url.openConnection() as HttpURLConnection
         return try {
             connection.requestMethod = "GET"
             connection.setRequestProperty("Content-Type", "application/json")
             connection.doOutput = true
+
+            token?.let {
+                connection.setRequestProperty("Authorization", "Bearer $token")
+            }
 
             if (connection.responseCode == HttpURLConnection.HTTP_OK) {
                 connection.inputStream.bufferedReader().use { it.readText() }
