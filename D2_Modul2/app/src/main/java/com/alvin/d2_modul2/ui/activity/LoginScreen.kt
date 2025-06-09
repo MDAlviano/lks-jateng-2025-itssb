@@ -5,10 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.alvin.d2_modul2.R
 import com.alvin.d2_modul2.model.User
 import com.alvin.d2_modul2.repository.AuthRepository
@@ -27,11 +24,19 @@ class LoginScreen : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login_screen)
 
+        initializeComponent()
+        onClickHandle()
+
+    }
+
+    private fun initializeComponent() {
         etEmail = findViewById(R.id.etLoginEmail)
         etPassword = findViewById(R.id.etLoginPassword)
         bLogin = findViewById(R.id.bLogin)
         linkToRegister = findViewById(R.id.linkToRegister)
+    }
 
+    private fun onClickHandle() {
         bLogin.setOnClickListener {
             val email = etEmail.text.toString()
             val password = etPassword.text.toString()
@@ -48,15 +53,16 @@ class LoginScreen : AppCompatActivity() {
                 startActivity(it)
             }
         }
-
     }
 
     private fun doLogin(email: String, password: String) {
         thread {
+            bLogin.isEnabled = false
             val response = AuthRepository.login(
                 email = email,
                 password = password
             )
+
             try {
                 if (response.isNotEmpty()) {
                     val jsonObject = JSONObject(response)
@@ -74,12 +80,17 @@ class LoginScreen : AppCompatActivity() {
                             it.putExtra("USER", loggedUser)
                             startActivity(it)
                         }
+
                         Toast.makeText(this@LoginScreen, "Success Login", Toast.LENGTH_SHORT).show()
                         finish()
+
+                        bLogin.isEnabled = true
                     }
                 }
             } catch (e: Exception) {
                 e.printStackTrace()
+
+                bLogin.isEnabled = true
             }
         }
     }
