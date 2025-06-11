@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.alvin.d2_modul2.R
 import com.alvin.d2_modul2.model.User
 import com.alvin.d2_modul2.repository.AuthRepository
+import com.alvin.d2_modul2.session.SessionManager
 import com.google.android.material.textfield.TextInputEditText
 import org.json.JSONObject
 import kotlin.concurrent.thread
@@ -55,6 +56,14 @@ class LoginScreen : AppCompatActivity() {
         }
     }
 
+    private fun saveLoggedUserData(user: User) {
+        val sessionManager = SessionManager(applicationContext)
+
+        sessionManager.saveLoggedUser(
+            user = user
+        )
+    }
+
     private fun doLogin(email: String, password: String) {
         thread {
             bLogin.isEnabled = false
@@ -75,6 +84,11 @@ class LoginScreen : AppCompatActivity() {
                         phoneNumber = data.getString("phoneNumber"),
                         role = data.getString("role")
                     )
+
+                    saveLoggedUserData(
+                        user = loggedUser
+                    )
+
                     runOnUiThread {
                         Intent(this@LoginScreen, ContainerActivity::class.java).also {
                             it.putExtra("USER", loggedUser)
