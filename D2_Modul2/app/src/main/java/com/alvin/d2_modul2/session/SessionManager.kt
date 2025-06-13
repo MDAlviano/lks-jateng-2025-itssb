@@ -2,27 +2,24 @@ package com.alvin.d2_modul2.session
 
 import android.content.Context
 import android.content.SharedPreferences
+import com.alvin.d2_modul2.constants.Constants
 import com.alvin.d2_modul2.model.User
 import org.json.JSONObject
 
 class SessionManager(context: Context) {
 
-    private val PREF_NAME = "GaweSession"
     private val PRIVATE_MODE = Context.MODE_PRIVATE
 
-    private val prefs: SharedPreferences = context.getSharedPreferences(PREF_NAME, PRIVATE_MODE)
+    private val prefs: SharedPreferences = context.getSharedPreferences(Constants.PREF_NAME, PRIVATE_MODE)
     private val editor: SharedPreferences.Editor = prefs.edit()
 
-    private val KEY_AUTH_TOKEN = "authToken"
-    private val KEY_LOGGED_USER = "loggedUser"
-
     fun saveAuthToken(token: String) {
-        editor.putString(KEY_AUTH_TOKEN, token)
+        editor.putString(Constants.KEY_AUTH_TOKEN, token)
         editor.apply()
     }
 
     fun fetchAuthUser(): String? {
-        return prefs.getString(KEY_AUTH_TOKEN, null)
+        return prefs.getString(Constants.KEY_AUTH_TOKEN, null)
     }
 
     fun saveLoggedUser(user: User) {
@@ -34,12 +31,12 @@ class SessionManager(context: Context) {
             put("phoneNumber", user.phoneNumber)
             put("role", user.role)
         }
-        editor.putString(KEY_LOGGED_USER, userJsonObject.toString())
+        editor.putString(Constants.KEY_LOGGED_USER, userJsonObject.toString())
         editor.apply()
     }
 
     fun fetchLoggedUser(): User? {
-        val userJsonString = prefs.getString(KEY_LOGGED_USER, null)
+        val userJsonString = prefs.getString(Constants.KEY_LOGGED_USER, null)
         return if (userJsonString != null) {
             try {
                 val userJsonObject = JSONObject(userJsonString)

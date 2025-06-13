@@ -1,15 +1,14 @@
 package com.alvin.d2_modul2.http
 
+import com.alvin.d2_modul2.constants.Constants
 import org.json.JSONObject
 import java.net.HttpURLConnection
 import java.net.URL
 
 object HttpHandler {
 
-    private const val BASE_URL = "http://localhost:5000"
-
     fun postRequest(endpoint: String, requestBody: JSONObject? = null): String {
-        val url = URL("$BASE_URL/$endpoint")
+        val url = URL("${Constants.BASE_URL}/$endpoint")
         val connection = url.openConnection() as HttpURLConnection
         return try {
             connection.requestMethod = "POST"
@@ -35,7 +34,7 @@ object HttpHandler {
     }
 
     fun getRequest(endpoint: String, token: String? = null): String {
-        val url = URL("$BASE_URL/$endpoint")
+        val url = URL("${Constants.BASE_URL}/$endpoint")
         val connection = url.openConnection() as HttpURLConnection
         return try {
             connection.requestMethod = "GET"

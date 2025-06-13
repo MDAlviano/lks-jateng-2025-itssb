@@ -1,19 +1,16 @@
 package com.alvin.d2_modul2.ui.fragment
 
-import android.graphics.BitmapFactory
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.fragment.app.Fragment
 import com.alvin.d2_modul2.R
 import com.alvin.d2_modul2.model.User
 import com.alvin.d2_modul2.session.SessionManager
-import java.net.HttpURLConnection
-import java.net.URL
-import kotlin.concurrent.thread
+import com.alvin.d2_modul2.util.ImageLoader
 
 class ProfileScreen : Fragment() {
 
@@ -58,27 +55,11 @@ class ProfileScreen : Fragment() {
         tvEmail.text = user.email
         tvPhone.text = user.phoneNumber
 
-        loadUserImage(
+        ImageLoader.loadUserProfilePhoto(
+            activity = requireActivity(),
+            imageView = iProfile,
             imageUri = user.pictureUri
         )
-    }
-
-    private fun loadUserImage(imageUri: String) {
-        thread {
-            val url = URL("http://10.0.2.2:5000/images/$imageUri")
-            val connection = url.openConnection() as HttpURLConnection
-            connection.doInput = true
-            connection.connect()
-
-            val inputStream = connection.inputStream
-            val bitmap = BitmapFactory.decodeStream(inputStream)
-
-            if (connection.responseCode == HttpURLConnection.HTTP_OK) {
-                requireActivity().runOnUiThread {
-                    iProfile.setImageBitmap(bitmap)
-                }
-            }
-        }
     }
 
 }
