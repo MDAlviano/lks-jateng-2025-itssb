@@ -3,7 +3,7 @@ package com.alvin.d2_modul2.model
 import android.os.Parcel
 import android.os.Parcelable
 
-data class Jobs(
+data class Job(
     val id: Int,
     val name: String,
     val companyName: String,
@@ -37,12 +37,12 @@ data class Jobs(
         return 0
     }
 
-    companion object CREATOR : Parcelable.Creator<Jobs> {
-        override fun createFromParcel(parcel: Parcel): Jobs {
-            return Jobs(parcel)
+    companion object CREATOR : Parcelable.Creator<Job> {
+        override fun createFromParcel(parcel: Parcel): Job {
+            return Job(parcel)
         }
 
-        override fun newArray(size: Int): Array<Jobs?> {
+        override fun newArray(size: Int): Array<Job?> {
             return arrayOfNulls(size)
         }
     }
