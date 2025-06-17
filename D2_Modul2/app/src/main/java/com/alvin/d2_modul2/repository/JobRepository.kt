@@ -1,7 +1,7 @@
 package com.alvin.d2_modul2.repository
 
 import com.alvin.d2_modul2.http.HttpHandler
-import com.alvin.d2_modul2.model.Jobs
+import com.alvin.d2_modul2.model.Job
 import com.alvin.d2_modul2.util.JsonParser
 import org.json.JSONObject
 
@@ -15,8 +15,8 @@ object JobRepository {
         )
     }
 
-    fun getJobs(endpoint: String): List<Jobs> {
-        val jobs = mutableListOf<Jobs>()
+    fun getJobs(endpoint: String): List<Job> {
+        val jobs = mutableListOf<Job>()
         val response = HttpHandler.getRequest(
             endpoint = endpoint
         )
