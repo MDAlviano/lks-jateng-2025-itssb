@@ -22,9 +22,17 @@ namespace D2_Modul3.Controllers
 
         [HttpPost]
         [Route("/users/register")]
-        public IActionResult Register(RegisterDto registerDto)
+        public IActionResult Register([FromBody] RegisterDto registerDto)
         {
             // validation
+            if(!ModelState.IsValid)
+            {
+                return BadRequest(new
+                {
+                    message = "Invalid request body."
+                });
+            }
+
             if (string.IsNullOrWhiteSpace(registerDto.username) || string.IsNullOrWhiteSpace(registerDto.fullName) || string.IsNullOrWhiteSpace(registerDto.email) || string.IsNullOrWhiteSpace(registerDto.password))
             {
                 return BadRequest(new
@@ -58,7 +66,7 @@ namespace D2_Modul3.Controllers
 
         [HttpPost]
         [Route("/users/login")]
-        public IActionResult Login(LoginDto loginDto)
+        public IActionResult Login([FromBody] LoginDto loginDto)
         {
             // validation
             if(!ModelState.IsValid)

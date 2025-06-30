@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "D:\\LKS\\Projects\\Jateng-2025\\D2_Modul3\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{C64FC3A4-6E7F-473C-974E-F17EE9ABB4BD}|D2_Modul3\\D2_Modul3.csproj|d:\\lks\\projects\\jateng-2025\\d2_modul3\\d2_modul3\\controllers\\coursecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C64FC3A4-6E7F-473C-974E-F17EE9ABB4BD}|D2_Modul3\\D2_Modul3.csproj|solutionrelative:d2_modul3\\controllers\\coursecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{C64FC3A4-6E7F-473C-974E-F17EE9ABB4BD}|D2_Modul3\\D2_Modul3.csproj|d:\\lks\\projects\\jateng-2025\\d2_modul3\\d2_modul3\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C64FC3A4-6E7F-473C-974E-F17EE9ABB4BD}|D2_Modul3\\D2_Modul3.csproj|solutionrelative:d2_modul3\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -31,15 +35,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "CourseController.cs",
+              "DocumentMoniker": "D:\\LKS\\Projects\\Jateng-2025\\D2_Modul3\\D2_Modul3\\Controllers\\CourseController.cs",
+              "RelativeDocumentMoniker": "D2_Modul3\\Controllers\\CourseController.cs",
+              "ToolTip": "D:\\LKS\\Projects\\Jateng-2025\\D2_Modul3\\D2_Modul3\\Controllers\\CourseController.cs",
+              "RelativeToolTip": "D2_Modul3\\Controllers\\CourseController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACgAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-25T12:34:51.276Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "AuthController.cs",
               "DocumentMoniker": "D:\\LKS\\Projects\\Jateng-2025\\D2_Modul3\\D2_Modul3\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "D2_Modul3\\Controllers\\AuthController.cs",
               "ToolTip": "D:\\LKS\\Projects\\Jateng-2025\\D2_Modul3\\D2_Modul3\\Controllers\\AuthController.cs",
               "RelativeToolTip": "D2_Modul3\\Controllers\\AuthController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAAlAAAAAAAAAA==",
+              "ViewState": "AgIAAEMAAAAAAAAAAAAowIYAAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-06T15:36:46.617Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-06T15:36:46.617Z"
             }
           ]
         }
