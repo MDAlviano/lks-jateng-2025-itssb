@@ -1,7 +1,12 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\LKS\\Projects\\Jateng-2025\\D2_Modul3\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C64FC3A4-6E7F-473C-974E-F17EE9ABB4BD}|D2_Modul3\\D2_Modul3.csproj|d:\\lks\\projects\\jateng-2025\\d2_modul3\\d2_modul3\\controllers\\couponcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C64FC3A4-6E7F-473C-974E-F17EE9ABB4BD}|D2_Modul3\\D2_Modul3.csproj|solutionrelative:d2_modul3\\controllers\\couponcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +14,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -22,6 +27,19 @@
             {
               "$type": "Bookmark",
               "Name": "ST:1:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CouponController.cs",
+              "DocumentMoniker": "D:\\LKS\\Projects\\Jateng-2025\\D2_Modul3\\D2_Modul3\\Controllers\\CouponController.cs",
+              "RelativeDocumentMoniker": "D2_Modul3\\Controllers\\CouponController.cs",
+              "ToolTip": "D:\\LKS\\Projects\\Jateng-2025\\D2_Modul3\\D2_Modul3\\Controllers\\CouponController.cs",
+              "RelativeToolTip": "D2_Modul3\\Controllers\\CouponController.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAAYwEAAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-01T08:18:02.496Z",
+              "EditorCaption": ""
             }
           ]
         }
