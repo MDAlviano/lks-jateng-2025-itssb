@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
+using System.Text.RegularExpressions;
 
 namespace D2_Modul3.Controllers
 {
@@ -14,17 +15,20 @@ namespace D2_Modul3.Controllers
     public class AuthController : ControllerBase
     {
         private ApplicationDbContext dbContext;
+        private PasswordHandler passwordHandler;
+        private SessionHandler sessionHandler;
 
-        public AuthController(ApplicationDbContext dbContext)
+        public AuthController(ApplicationDbContext dbContext, PasswordHandler passwordHandler, SessionHandler sessionHandler)
         {
             this.dbContext = dbContext;
+            this.passwordHandler = passwordHandler;
+            this.sessionHandler = sessionHandler;
         }
 
         [HttpPost]
         [Route("/users/register")]
         public IActionResult Register([FromBody] RegisterDto registerDto)
         {
-            // validation
             if(!ModelState.IsValid)
             {
                 return BadRequest(new
@@ -41,9 +45,33 @@ namespace D2_Modul3.Controllers
                 });
             }
 
-            var security = new PasswordHandler();
-            var hashedPass = security.HashPassword(registerDto.password);
+            var emailExists = dbContext.Users.Any(u => u.email == registerDto.email);
+            if (emailExists)
+            {
+                return Conflict(new
+                {
+                    message = "User already registered."
+                });
+            }
 
+            var emailRegex = new Regex(@"^[^@\s]+@[^@\s]+\.[^@\s]+$");
+            if (!emailRegex.IsMatch(registerDto.email))
+            {
+                return BadRequest(new { 
+                    message = "Validation error: email is invalid.."
+                });
+            }
+
+            var passwordRegex = new Regex(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z0-9]).{8,}$");
+            if (!passwordRegex.IsMatch(registerDto.password))
+            {
+                return BadRequest(new
+                {
+                    message = "Validation error: password must contain min. 8 chars with uppercase, lowercase, number, and symbol."
+                });
+            }
+
+            var hashedPass = passwordHandler.HashPassword(registerDto.password);
             Users newUser = new Users
             {
                 name = registerDto.fullName,
@@ -68,12 +96,11 @@ namespace D2_Modul3.Controllers
         [Route("/users/login")]
         public IActionResult Login([FromBody] LoginDto loginDto)
         {
-            // validation
             if(!ModelState.IsValid)
             {
-                return Unauthorized(new
+                return BadRequest(new
                 {
-                    message = "Invalid email or password."
+                    message = "Validation error: invalid request body."
                 });
             }
 
@@ -93,22 +120,25 @@ namespace D2_Modul3.Controllers
                 });
             }
 
-            var passHandler = new PasswordHandler();
-            var hashedPass = passHandler.HashPassword(loginDto.password);
-
-            var loggedUser = dbContext.Users.FirstOrDefault(u => u.email.Equals(loginDto.email) && u.password_hash.Equals(hashedPass));
-
-            if (loggedUser == null)
+            var emailRegex = new Regex(@"^[^@\s]+@[^@\s]+\.[^@\s]+$");
+            if (!emailRegex.IsMatch(loginDto.email))
             {
-                return NotFound(new
-                {
-                    message = "User not found."
+                return BadRequest(new { 
+                    message = "Validation error: email format is invalid." 
                 });
             }
 
-            var session = new SessionHandler();
-            var token = session.GenerateToken(loggedUser);
+            var hashedPass = passwordHandler.HashPassword(loginDto.password);
+            var loggedUser = dbContext.Users.FirstOrDefault(u => u.email.Equals(loginDto.email) && u.password_hash.Equals(hashedPass));
+            if (loggedUser == null)
+            {
+                return Unauthorized(new
+                {
+                    message = "Invalid email or password."
+                });
+            }
 
+            var token = sessionHandler.GenerateToken(loggedUser);
             return Ok(new
             {
                 message = "Login successful.",
@@ -123,24 +153,27 @@ namespace D2_Modul3.Controllers
 
         }
 
-        //[HttpPost]
-        //[Authorize]
-        //[Route("/users/logout")]
-        //public IActionResult Logout()
-        //{
-        //    var user = User.Identity?.IsAuthenticated;
+        [HttpPost]
+        [Authorize]
+        [Route("/users/logout")]
+        public IActionResult Logout()
+        {
+            var user = User.Identity?.IsAuthenticated;
 
-        //    if (user == null)
-        //    {
-        //        return Unauthorized(new
-        //        {
-        //            message = "Authorization token missing or invalid."
-        //        });
-        //    }
+            if (user == null)
+            {
+                return Unauthorized(new
+                {
+                    message = "Authorization token missing or invalid."
+                });
+            }
 
-            
+            return Ok(new
+            {
+                message = "Logout successful."
+            });
 
-        //}
+        }
 
     }
 }

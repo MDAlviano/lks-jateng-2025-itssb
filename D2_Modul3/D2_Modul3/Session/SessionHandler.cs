@@ -15,6 +15,7 @@ namespace D2_Modul3.Session
                 new Claim(ClaimTypes.NameIdentifier, users.id.ToString()),
                 new Claim(ClaimTypes.Email, users.email.ToString()),
                 new Claim(ClaimTypes.Name, users.name.ToString()),
+                new Claim(ClaimTypes.Role, users.role),
             };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("lks-provinsi-jateng-2025-gsa-web-api-tp3"));
