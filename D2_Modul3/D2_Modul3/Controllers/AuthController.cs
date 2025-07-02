@@ -39,7 +39,7 @@ namespace D2_Modul3.Controllers
 
             if (string.IsNullOrWhiteSpace(registerDto.username) || string.IsNullOrWhiteSpace(registerDto.fullName) || string.IsNullOrWhiteSpace(registerDto.email) || string.IsNullOrWhiteSpace(registerDto.password))
             {
-                return BadRequest(new
+                return UnprocessableEntity(new
                 {
                     message = "Validation error: email is required!"
                 });
@@ -50,14 +50,14 @@ namespace D2_Modul3.Controllers
             {
                 return Conflict(new
                 {
-                    message = "User already registered."
+                    message = "Validation error: user already registered."
                 });
             }
 
             var emailRegex = new Regex(@"^[^@\s]+@[^@\s]+\.[^@\s]+$");
             if (!emailRegex.IsMatch(registerDto.email))
             {
-                return BadRequest(new { 
+                return UnprocessableEntity(new { 
                     message = "Validation error: email is invalid.."
                 });
             }
@@ -65,7 +65,7 @@ namespace D2_Modul3.Controllers
             var passwordRegex = new Regex(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z0-9]).{8,}$");
             if (!passwordRegex.IsMatch(registerDto.password))
             {
-                return BadRequest(new
+                return UnprocessableEntity(new
                 {
                     message = "Validation error: password must contain min. 8 chars with uppercase, lowercase, number, and symbol."
                 });
@@ -106,7 +106,7 @@ namespace D2_Modul3.Controllers
 
             if (string.IsNullOrWhiteSpace(loginDto.email) || string.IsNullOrWhiteSpace(loginDto.password))
             {
-                return BadRequest(new
+                return UnprocessableEntity(new
                 {
                     message = "Validation error: all fields are required."
                 });
@@ -114,7 +114,7 @@ namespace D2_Modul3.Controllers
 
             if (loginDto.password.Length < 8)
             {
-                return BadRequest(new
+                return UnprocessableEntity(new
                 {
                     message = "Validation error: password must be at least 8 characters."
                 });
@@ -123,7 +123,7 @@ namespace D2_Modul3.Controllers
             var emailRegex = new Regex(@"^[^@\s]+@[^@\s]+\.[^@\s]+$");
             if (!emailRegex.IsMatch(loginDto.email))
             {
-                return BadRequest(new { 
+                return UnprocessableEntity(new { 
                     message = "Validation error: email format is invalid." 
                 });
             }
