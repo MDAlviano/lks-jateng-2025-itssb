@@ -11,7 +11,7 @@ object AuthRepository {
             put("password", password)
         }
 
-        return HttpHandler.postRequest(
+        return HttpHandler.post(
             endpoint = "api/auth",
             requestBody = requestBody
         )
@@ -26,7 +26,7 @@ object AuthRepository {
             put("confirmPassword", confirmPassword)
         }
 
-        return HttpHandler.postRequest(
+        return HttpHandler.post(
             endpoint = "api/auth",
             requestBody = requestBody
         )

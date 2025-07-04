@@ -7,7 +7,7 @@ import java.net.URL
 
 object HttpHandler {
 
-    fun postRequest(endpoint: String, requestBody: JSONObject? = null): String {
+    fun post(endpoint: String, requestBody: JSONObject? = null): String {
         val url = URL("${Constants.BASE_URL}/$endpoint")
         val connection = url.openConnection() as HttpURLConnection
         return try {
@@ -33,7 +33,7 @@ object HttpHandler {
         }
     }
 
-    fun getRequest(endpoint: String, token: String? = null): String {
+    fun get(endpoint: String, token: String? = null): String {
         val url = URL("${Constants.BASE_URL}/$endpoint")
         val connection = url.openConnection() as HttpURLConnection
         return try {

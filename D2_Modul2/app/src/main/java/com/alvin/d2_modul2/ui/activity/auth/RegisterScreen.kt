@@ -1,15 +1,9 @@
-package com.alvin.d2_modul2.ui.activity
+package com.alvin.d2_modul2.ui.activity.auth
 
-import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.alvin.d2_modul2.R
 import com.alvin.d2_modul2.repository.AuthRepository
 import com.google.android.material.textfield.TextInputEditText
 import kotlin.concurrent.thread
@@ -28,12 +22,12 @@ class RegisterScreen : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register_screen)
 
-        initializeComponent()
-        onClickHandle()
+        setupView()
+        setupListener()
 
     }
 
-    private fun initializeComponent() {
+    private fun setupView() {
         etFullName = findViewById(R.id.etRegFullName)
         etEmail = findViewById(R.id.etRegEmail)
         etPhone = findViewById(R.id.etRegPhone)
@@ -43,7 +37,7 @@ class RegisterScreen : AppCompatActivity() {
         linkToLogin = findViewById(R.id.linkToLogin)
     }
 
-    private fun onClickHandle() {
+    private fun setupListener() {
         bRegister.setOnClickListener {
             val fullName = etFullName.text.toString()
             val email = etEmail.text.toString()
@@ -53,7 +47,7 @@ class RegisterScreen : AppCompatActivity() {
 
             if (fullName.isNotEmpty() && email.isNotEmpty() && phone.isNotEmpty() && pass.isNotEmpty() && confirmPass.isNotEmpty()) {
                 if (pass == confirmPass) {
-                    doRegister(fullName, email, phone, pass, confirmPass)
+                    registerUser(fullName, email, phone, pass, confirmPass)
                 } else {
                     Toast.makeText(this@RegisterScreen, "Password and confirm password must be same!", Toast.LENGTH_SHORT).show()
                 }
@@ -68,7 +62,7 @@ class RegisterScreen : AppCompatActivity() {
         }
     }
 
-    private fun doRegister(
+    private fun registerUser(
         fullName: String,
         email: String,
         phone: String,
@@ -92,7 +86,11 @@ class RegisterScreen : AppCompatActivity() {
                             startActivity(it)
                         }
 
-                        Toast.makeText(this@RegisterScreen, "Success register new account", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(
+                            this@RegisterScreen,
+                            "Success register new account",
+                            Toast.LENGTH_SHORT
+                        ).show()
                         finish()
 
                         bRegister.isEnabled = true

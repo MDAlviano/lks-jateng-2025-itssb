@@ -1,6 +1,5 @@
 package com.alvin.d2_modul2.ui.adapter
 
-import android.R.attr.onClick
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -36,7 +35,10 @@ class JobAdapter(private val jobs: List<Job>, private val onClick: (Job) -> Unit
         holder.company.text = job.companyName
         holder.location.text = "${job.locationType} (${job.locationRegion})"
         holder.experience.text = job.yearOfExperience
-        holder.itemView.setOnClickListener { onClick(job) }
+
+        holder.itemView.setOnClickListener {
+            onClick(job)
+        }
     }
 
     override fun getItemCount(): Int = jobs.size

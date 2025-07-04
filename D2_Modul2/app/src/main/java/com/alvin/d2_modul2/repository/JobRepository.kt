@@ -10,14 +10,14 @@ object JobRepository {
     private val jsonParser = JsonParser()
 
     fun applyJob(jobId: Int): String {
-        return HttpHandler.postRequest(
+        return HttpHandler.post(
             endpoint = "api/jobs/$jobId/apply"
         )
     }
 
     fun getJobs(endpoint: String): List<Job> {
         val jobs = mutableListOf<Job>()
-        val response = HttpHandler.getRequest(
+        val response = HttpHandler.get(
             endpoint = endpoint
         )
 

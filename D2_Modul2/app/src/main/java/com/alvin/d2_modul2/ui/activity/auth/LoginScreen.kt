@@ -1,15 +1,14 @@
-package com.alvin.d2_modul2.ui.activity
+package com.alvin.d2_modul2.ui.activity.auth
 
-import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
-import com.alvin.d2_modul2.R
 import com.alvin.d2_modul2.model.User
 import com.alvin.d2_modul2.repository.AuthRepository
 import com.alvin.d2_modul2.session.SessionManager
+import com.alvin.d2_modul2.ui.activity.ContainerActivity
+import com.alvin.d2_modul2.ui.activity.auth.RegisterScreen
 import com.google.android.material.textfield.TextInputEditText
 import org.json.JSONObject
 import kotlin.concurrent.thread
@@ -25,19 +24,19 @@ class LoginScreen : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login_screen)
 
-        initializeComponent()
-        onClickHandle()
+        setupView()
+        setupListener()
 
     }
 
-    private fun initializeComponent() {
+    private fun setupView() {
         etEmail = findViewById(R.id.etLoginEmail)
         etPassword = findViewById(R.id.etLoginPassword)
         bLogin = findViewById(R.id.bLogin)
         linkToRegister = findViewById(R.id.linkToRegister)
     }
 
-    private fun onClickHandle() {
+    private fun setupListener() {
         bLogin.setOnClickListener {
             val email = etEmail.text.toString()
             val password = etPassword.text.toString()
@@ -45,7 +44,7 @@ class LoginScreen : AppCompatActivity() {
             if (email.isEmpty() || password.isEmpty()) {
                 Toast.makeText(this@LoginScreen, "Please fill all fields!", Toast.LENGTH_SHORT).show()
             } else {
-                doLogin(email, password)
+                loginUser(email, password)
             }
         }
 
@@ -64,7 +63,7 @@ class LoginScreen : AppCompatActivity() {
         )
     }
 
-    private fun doLogin(email: String, password: String) {
+    private fun loginUser(email: String, password: String) {
         thread {
             bLogin.isEnabled = false
             val response = AuthRepository.login(
