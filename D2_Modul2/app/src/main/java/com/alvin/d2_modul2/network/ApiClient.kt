@@ -1,11 +1,11 @@
-package com.alvin.d2_modul2.http
+package com.alvin.d2_modul2.network
 
-import com.alvin.d2_modul2.constants.Constants
+import com.alvin.d2_modul2.util.Constants
 import org.json.JSONObject
 import java.net.HttpURLConnection
 import java.net.URL
 
-object HttpHandler {
+object ApiClient {
 
     fun post(endpoint: String, requestBody: JSONObject? = null): String {
         val url = URL("${Constants.BASE_URL}/$endpoint")

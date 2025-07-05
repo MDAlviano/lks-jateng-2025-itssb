@@ -1,4 +1,4 @@
-package com.alvin.d2_modul2.ui.activity.auth
+package com.alvin.d2_modul2.ui.auth
 
 import android.os.Bundle
 import android.widget.Button
@@ -7,8 +7,7 @@ import android.widget.Toast
 import com.alvin.d2_modul2.model.User
 import com.alvin.d2_modul2.repository.AuthRepository
 import com.alvin.d2_modul2.session.SessionManager
-import com.alvin.d2_modul2.ui.activity.ContainerActivity
-import com.alvin.d2_modul2.ui.activity.auth.RegisterScreen
+import com.alvin.d2_modul2.ui.main.ContainerActivity
 import com.google.android.material.textfield.TextInputEditText
 import org.json.JSONObject
 import kotlin.concurrent.thread

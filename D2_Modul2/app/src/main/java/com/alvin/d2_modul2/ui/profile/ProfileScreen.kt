@@ -1,4 +1,4 @@
-package com.alvin.d2_modul2.ui.fragment
+package com.alvin.d2_modul2.ui.profile
 
 import android.os.Bundle
 import android.view.LayoutInflater

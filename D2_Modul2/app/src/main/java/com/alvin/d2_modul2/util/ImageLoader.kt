@@ -3,7 +3,7 @@ package com.alvin.d2_modul2.util
 import android.app.Activity
 import android.graphics.BitmapFactory
 import android.widget.ImageView
-import com.alvin.d2_modul2.constants.Constants
+import com.alvin.d2_modul2.util.Constants
 import java.net.HttpURLConnection
 import java.net.URL
 import kotlin.concurrent.thread

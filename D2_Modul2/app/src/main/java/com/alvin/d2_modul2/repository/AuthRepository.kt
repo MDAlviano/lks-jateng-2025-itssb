@@ -1,6 +1,6 @@
 package com.alvin.d2_modul2.repository
 
-import com.alvin.d2_modul2.http.HttpHandler
+import com.alvin.d2_modul2.network.ApiClient
 import org.json.JSONObject
 
 object AuthRepository {
@@ -11,7 +11,7 @@ object AuthRepository {
             put("password", password)
         }
 
-        return HttpHandler.post(
+        return ApiClient.post(
             endpoint = "api/auth",
             requestBody = requestBody
         )
@@ -26,7 +26,7 @@ object AuthRepository {
             put("confirmPassword", confirmPassword)
         }
 
-        return HttpHandler.post(
+        return ApiClient.post(
             endpoint = "api/auth",
             requestBody = requestBody
         )

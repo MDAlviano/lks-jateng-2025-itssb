@@ -1,4 +1,4 @@
-package com.alvin.d2_modul2.ui.activity.auth
+package com.alvin.d2_modul2.ui.auth
 
 import android.os.Bundle
 import android.widget.Button

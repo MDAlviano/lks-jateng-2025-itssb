@@ -1,4 +1,4 @@
-package com.alvin.d2_modul2.constants
+package com.alvin.d2_modul2.util
 
 object Constants {
 

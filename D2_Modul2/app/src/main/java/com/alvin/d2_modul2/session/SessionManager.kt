@@ -2,7 +2,7 @@ package com.alvin.d2_modul2.session
 
 import android.content.Context
 import android.content.SharedPreferences
-import com.alvin.d2_modul2.constants.Constants
+import com.alvin.d2_modul2.util.Constants
 import com.alvin.d2_modul2.model.User
 import org.json.JSONObject
 

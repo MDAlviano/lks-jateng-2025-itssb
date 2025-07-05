@@ -1,4 +1,4 @@
-package com.alvin.d2_modul2.ui.adapter
+package com.alvin.d2_modul2.ui.components
 
 import android.view.LayoutInflater
 import android.view.View
